@@ -12,7 +12,7 @@ enum class UsageType: Serializable {
     BasicUsage
     ;
 
-    open fun executeGlide(context: Context, imageView: ImageView, imageString: String) {
+    open fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
         imageView.loadImage(context, imageString)
     }
 }

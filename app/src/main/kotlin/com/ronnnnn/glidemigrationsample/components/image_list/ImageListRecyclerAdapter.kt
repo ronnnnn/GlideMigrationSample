@@ -42,7 +42,7 @@ class ImageListRecyclerAdapter(private val context: Context, private val usageTy
         val itemImageView: ImageView = itemView.bindView(R.id.item_image_view)
 
         fun onBind(image: Image) {
-            usageType.executeGlide(itemView.context, itemImageView, image.imageUrl)
+            usageType.loadWithGlide(itemView.context, itemImageView, image.imageUrl)
         }
     }
 }
