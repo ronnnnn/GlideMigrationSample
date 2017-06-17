@@ -1,4 +1,4 @@
-package com.ronnnnn.glidemigrationsample
+package com.ronnnnn.glidemigrationsample.extentions
 
 import android.app.Activity
 import android.support.annotation.IdRes

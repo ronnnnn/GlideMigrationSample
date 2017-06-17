@@ -1,4 +1,4 @@
-package com.ronnnnn.glidemigrationsample
+package com.ronnnnn.glidemigrationsample.view
 
 import android.content.Context
 import android.graphics.Canvas
@@ -6,6 +6,7 @@ import android.graphics.Paint
 import android.support.annotation.ColorRes
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
+import com.ronnnnn.glidemigrationsample.R
 
 /**
  * Created by kokushiseiya on 2017/06/17.

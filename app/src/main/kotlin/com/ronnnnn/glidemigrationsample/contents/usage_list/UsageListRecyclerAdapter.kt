@@ -1,4 +1,4 @@
-package com.ronnnnn.glidemigrationsample
+package com.ronnnnn.glidemigrationsample.contents.usage_list
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
@@ -6,6 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.ronnnnn.glidemigrationsample.R
+import com.ronnnnn.glidemigrationsample.UsageType
+import com.ronnnnn.glidemigrationsample.extentions.bindView
 
 /**
  * Created by kokushiseiya on 2017/06/17.
