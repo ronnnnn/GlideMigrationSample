@@ -1,0 +1,58 @@
+#built application files
+*.apk
+*.ap_
+
+# files for the dex VM
+*.dex
+
+# Java class files
+*.class
+
+# generated files
+bin/
+gen/
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Windows thumbnail db
+Thumbs.db
+
+# OSX files
+.DS_Store
+
+# Eclipse project files
+.classpath
+.project
+.settings
+.checkstyle
+.DS_Store
+import-summary.txt
+
+# Intellij
+*.iml
+*.ipr
+*.iws
+
+# Android Studio
+.idea
+!.idea/codeStyleSettings.xml
+#.idea/workspace.xml - remove # and delete .idea if it better suit your needs.
+.gradle
+build/
+
+# Ruby
+.bundle/
+vendor/
+
+# Others
+com_crashlytics_export_strings.xml
+crashlytics-build.properties
+crashlytics.properties
+manifest-merger-production-release-report.txt
+
+# JKS
+app/production.jks
+
+# Properties
+secret.properties
