@@ -1,4 +1,4 @@
-package com.ronnnnn.glidemigrationsample.view
+package com.ronnnnn.glidemigrationsample.views
 
 import android.content.Context
 import android.graphics.Canvas

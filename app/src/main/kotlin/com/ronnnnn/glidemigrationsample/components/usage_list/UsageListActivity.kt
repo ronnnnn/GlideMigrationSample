@@ -1,4 +1,4 @@
-package com.ronnnnn.glidemigrationsample.contents.usage_list
+package com.ronnnnn.glidemigrationsample.components.usage_list
 
 import com.ronnnnn.glidemigrationsample.R
 import com.ronnnnn.glidemigrationsample.extentions.bindView
@@ -12,7 +12,7 @@ class UsageListActivity : android.support.v7.app.AppCompatActivity(), com.ronnnn
         bindView<android.support.v7.widget.RecyclerView>(com.ronnnnn.glidemigrationsample.R.id.usage_list_recycler_view).run {
             layoutManager = android.support.v7.widget.LinearLayoutManager(context)
             adapter = com.ronnnnn.glidemigrationsample.UsageListRecyclerAdapter(context, this@UsageListActivity)
-            addItemDecoration(com.ronnnnn.glidemigrationsample.view.SimpleItemDecoration(
+            addItemDecoration(com.ronnnnn.glidemigrationsample.views.SimpleItemDecoration(
                     context,
                     R.color.usage_list_divider_color,
                     context.resources.getDimensionPixelSize(R.dimen.margin_12)

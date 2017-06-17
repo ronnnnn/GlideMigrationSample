@@ -1,4 +1,4 @@
-package com.ronnnnn.glidemigrationsample.contents.usage_list
+package com.ronnnnn.glidemigrationsample.components.usage_list
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
