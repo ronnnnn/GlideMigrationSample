@@ -7,7 +7,7 @@ import android.widget.ImageView
 /**
  * Created by kokushiseiya on 2017/06/17.
  */
-class SquareImageView(
+class SquareImageView @JvmOverloads constructor(
         context: Context,
         attrs: AttributeSet? = null,
         defStyleAttr: Int = 0,

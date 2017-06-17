@@ -1,18 +1,25 @@
 package com.ronnnnn.glidemigrationsample.components.usage_list
 
+import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import com.ronnnnn.glidemigrationsample.R
+import com.ronnnnn.glidemigrationsample.UsageType
+import com.ronnnnn.glidemigrationsample.components.image_list.ImageListActivity
 import com.ronnnnn.glidemigrationsample.extentions.bindView
+import com.ronnnnn.glidemigrationsample.views.SimpleItemDecoration
 
-class UsageListActivity : android.support.v7.app.AppCompatActivity(), com.ronnnnn.glidemigrationsample.UsageListRecyclerAdapter.UsageListRecyclerAdapterListener {
+class UsageListActivity : AppCompatActivity(), UsageListRecyclerAdapter.UsageListRecyclerAdapterListener {
 
-    override fun onCreate(savedInstanceState: android.os.Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(com.ronnnnn.glidemigrationsample.R.layout.activity_usage_list)
+        setContentView(R.layout.activity_usage_list)
 
-        bindView<android.support.v7.widget.RecyclerView>(com.ronnnnn.glidemigrationsample.R.id.usage_list_recycler_view).run {
-            layoutManager = android.support.v7.widget.LinearLayoutManager(context)
-            adapter = com.ronnnnn.glidemigrationsample.UsageListRecyclerAdapter(context, this@UsageListActivity)
-            addItemDecoration(com.ronnnnn.glidemigrationsample.views.SimpleItemDecoration(
+        bindView<RecyclerView>(R.id.usage_list_recycler_view).run {
+            layoutManager = LinearLayoutManager(context)
+            adapter = UsageListRecyclerAdapter(context, this@UsageListActivity)
+            addItemDecoration(SimpleItemDecoration(
                     context,
                     R.color.usage_list_divider_color,
                     context.resources.getDimensionPixelSize(R.dimen.margin_12)
@@ -21,6 +28,6 @@ class UsageListActivity : android.support.v7.app.AppCompatActivity(), com.ronnnn
     }
 
     override fun onItemClicked(position: Int) {
-
+        startActivity(ImageListActivity.createIntent(this, UsageType.values()[position]))
     }
 }
