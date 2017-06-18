@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.view.View
+import android.widget.ProgressBar
 import com.ronnnnn.glidemigrationsample.R
 import com.ronnnnn.glidemigrationsample.extentions.bindView
 import com.ronnnnn.glidemigrationsample.models.Photo
@@ -27,8 +29,9 @@ class ImageListActivity : AppCompatActivity(), ImageListPresenter.ImageListView 
 
     private var usageType: UsageType? = null
 
-    private lateinit var adapter: ImageListRecyclerAdapter
     private lateinit var presenter: ImageListPresenter
+    private lateinit var adapter: ImageListRecyclerAdapter
+    private lateinit var loadingProgress: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,8 +48,13 @@ class ImageListActivity : AppCompatActivity(), ImageListPresenter.ImageListView 
                 adapter = this@ImageListActivity.adapter
             }
         }
+        loadingProgress = bindView(R.id.loading_progress_bar)
 
         presenter.getRecentPhotos()
+    }
+
+    override fun toggleProgressVisibility(isVisible: Boolean) {
+        loadingProgress.visibility = if (isVisible) View.VISIBLE else View.INVISIBLE
     }
 
     override fun setPhotos(photoList: List<Photo>) {

@@ -16,6 +16,9 @@ class ImageListPresenter(private val imageListView: ImageListView) {
         useCase.getRecentPhotos()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .doOnSubscribe { imageListView.toggleProgressVisibility(true) }
+                .doOnSuccess { imageListView.toggleProgressVisibility(false) }
+                .doOnError { imageListView.toggleProgressVisibility(false) }
                 .subscribe({ photos ->
                     imageListView.setPhotos(photos)
                 }, { throwable ->
@@ -24,6 +27,8 @@ class ImageListPresenter(private val imageListView: ImageListView) {
     }
 
     interface ImageListView {
+        fun toggleProgressVisibility(isVisible: Boolean)
+
         fun setPhotos(photoList: List<Photo>)
     }
 }
