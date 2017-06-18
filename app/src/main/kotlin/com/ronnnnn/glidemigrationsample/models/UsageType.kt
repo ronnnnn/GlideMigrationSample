@@ -27,6 +27,34 @@ enum class UsageType : Serializable {
                     .error(R.drawable.image_error)
                     .into(imageView)
         }
+    },
+    CrossFade {
+        // same behavior with "Placeholder" section
+        override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
+            Glide.with(context)
+                    .load(imageString)
+                    .placeholder(R.drawable.image_placeholder)
+                    .crossFade()
+                    .into(imageView)
+        }
+    },
+    CrossFadeWithDuration {
+        override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
+            Glide.with(context)
+                    .load(imageString)
+                    .placeholder(R.drawable.image_placeholder)
+                    .crossFade(1000) // default duration is 300
+                    .into(imageView)
+        }
+    },
+    NotAnimate {
+        override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
+            Glide.with(context)
+                    .load(imageString)
+                    .placeholder(R.drawable.image_placeholder)
+                    .dontAnimate()
+                    .into(imageView)
+        }
     }
     ;
 
