@@ -7,14 +7,14 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import com.ronnnnn.glidemigrationsample.R
-import com.ronnnnn.glidemigrationsample.UsageType
 import com.ronnnnn.glidemigrationsample.extentions.bindView
-import com.ronnnnn.glidemigrationsample.models.Image
+import com.ronnnnn.glidemigrationsample.models.Photo
+import com.ronnnnn.glidemigrationsample.models.UsageType
 
 /**
  * Created by kokushiseiya on 2017/06/17.
  */
-class ImageListActivity : AppCompatActivity() {
+class ImageListActivity : AppCompatActivity(), ImageListPresenter.ImageListView {
 
     companion object {
         private const val KEY_USAGE_TYPE = "key_usage_type"
@@ -28,10 +28,13 @@ class ImageListActivity : AppCompatActivity() {
     private var usageType: UsageType? = null
 
     private lateinit var adapter: ImageListRecyclerAdapter
+    private lateinit var presenter: ImageListPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_image_list)
+
+        presenter = ImageListPresenter(this)
 
         usageType = intent.getSerializableExtra(KEY_USAGE_TYPE) as? UsageType
 
@@ -43,7 +46,10 @@ class ImageListActivity : AppCompatActivity() {
             }
         }
 
-        val imageList = listOf(Image("http://i.imgur.com/DvpvklR.png"))
-        adapter.setItems(imageList)
+        presenter.getRecentPhotos()
+    }
+
+    override fun setPhotos(photoList: List<Photo>) {
+        adapter.setItems(photoList)
     }
 }

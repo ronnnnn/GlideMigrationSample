@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.ronnnnn.glidemigrationsample.R
-import com.ronnnnn.glidemigrationsample.UsageType
+import com.ronnnnn.glidemigrationsample.models.UsageType
 import com.ronnnnn.glidemigrationsample.extentions.bindView
 
 /**

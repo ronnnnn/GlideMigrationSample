@@ -1,4 +1,4 @@
-package com.ronnnnn.glidemigrationsample
+package com.ronnnnn.glidemigrationsample.models
 
 import android.content.Context
 import android.widget.ImageView
