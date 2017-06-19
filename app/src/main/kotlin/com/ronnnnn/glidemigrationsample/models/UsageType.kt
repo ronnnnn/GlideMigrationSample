@@ -156,7 +156,8 @@ enum class UsageType(val contentType: ContentType) : Serializable {
                     .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                     .into(imageView)
         }
-    }
+    },
+    ImageRequestPriority(ContentType.Photo)
     ;
 
     open fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {

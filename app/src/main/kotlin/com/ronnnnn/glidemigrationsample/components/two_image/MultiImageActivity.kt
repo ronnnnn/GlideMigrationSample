@@ -1,5 +1,7 @@
 package com.ronnnnn.glidemigrationsample.components.two_image
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
@@ -15,6 +17,10 @@ import com.ronnnnn.glidemigrationsample.models.Photo
  * Created by kokushiseiya on 2017/06/19.
  */
 class MultiImageActivity : AppCompatActivity(), MultiImagePresenter.MultiImageView {
+
+    companion object {
+        fun createIntent(context: Context) = Intent(context, MultiImageActivity::class.java)
+    }
 
     private lateinit var presenter: MultiImagePresenter
     private lateinit var firstImageView: ImageView
@@ -40,13 +46,13 @@ class MultiImageActivity : AppCompatActivity(), MultiImagePresenter.MultiImageVi
 
     override fun setImages(photoList: List<Photo>) {
         Glide.with(this)
-                .load(photoList[0])
+                .load(photoList[0].getPhotoUrl())
                 .placeholder(R.drawable.image_placeholder)
-                .priority(Priority.IMMEDIATE)
+                .priority(Priority.HIGH)
                 .into(firstImageView)
 
         Glide.with(this)
-                .load(photoList[1])
+                .load(photoList[1].getPhotoUrl())
                 .placeholder(R.drawable.image_placeholder)
                 .priority(Priority.LOW)
                 .into(secondImageView)
