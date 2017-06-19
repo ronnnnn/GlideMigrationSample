@@ -119,6 +119,43 @@ enum class UsageType(val contentType: ContentType) : Serializable {
                     .placeholder(R.drawable.image_placeholder)
                     .into(imageView)
         }
+    },
+    NoMemoryCache(ContentType.Photo) {
+        override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
+            Glide.with(context)
+                    .load(imageString)
+                    .placeholder(R.drawable.image_placeholder)
+                    .skipMemoryCache(true) // default is false
+                    .into(imageView)
+        }
+    },
+    NoDiskCache(ContentType.Photo) {
+        override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
+            Glide.with(context)
+                    .load(imageString)
+                    .placeholder(R.drawable.image_placeholder)
+                    .diskCacheStrategy(DiskCacheStrategy.NONE) // default is RESULT
+                    .into(imageView)
+        }
+    },
+    NoCache(ContentType.Photo) {
+        override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
+            Glide.with(context)
+                    .load(imageString)
+                    .placeholder(R.drawable.image_placeholder)
+                    .skipMemoryCache(true)
+                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .into(imageView)
+        }
+    },
+    CacheOriginalImage(ContentType.Photo) {
+        override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
+            Glide.with(context)
+                    .load(imageString)
+                    .placeholder(R.drawable.image_placeholder)
+                    .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                    .into(imageView)
+        }
     }
     ;
 
