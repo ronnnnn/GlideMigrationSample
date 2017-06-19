@@ -1,4 +1,4 @@
-package com.ronnnnn.glidemigrationsample.components.image_list
+package com.ronnnnn.glidemigrationsample.use_case
 
 import com.ronnnnn.glidemigrationsample.models.Gif
 import com.ronnnnn.glidemigrationsample.models.Photo
@@ -10,7 +10,7 @@ import io.reactivex.Single
 /**
  * Created by kokushiseiya on 2017/06/18.
  */
-class ImageListUseCase {
+class LoadImageUseCase {
 
     private val flickerSource: FlickerSource = FlickerSource(GMSRetrofit.flickrService)
     private val giphySource: GiphySource = GiphySource(GMSRetrofit.giphyService)

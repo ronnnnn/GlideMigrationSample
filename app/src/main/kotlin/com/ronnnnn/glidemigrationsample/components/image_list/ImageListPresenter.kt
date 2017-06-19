@@ -2,6 +2,7 @@ package com.ronnnnn.glidemigrationsample.components.image_list
 
 import com.ronnnnn.glidemigrationsample.models.Gif
 import com.ronnnnn.glidemigrationsample.models.Photo
+import com.ronnnnn.glidemigrationsample.use_case.LoadImageUseCase
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import timber.log.Timber
@@ -11,7 +12,7 @@ import timber.log.Timber
  */
 class ImageListPresenter(private val imageListView: ImageListView) {
 
-    private val useCase = ImageListUseCase()
+    private val useCase = LoadImageUseCase()
 
     fun getRecentPhotos() {
         useCase.getRecentPhotos()
