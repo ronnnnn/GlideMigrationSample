@@ -13,8 +13,10 @@ import kotlin.properties.Delegates
 object GMSRetrofit {
 
     private const val FLICKR_BASE_URL = "https://api.flickr.com/"
+    private const val GIPHY_BASE_URL = "http://api.giphy.com/"
 
     var flickrService: FlickrService by Delegates.notNull()
+    var giphyService: GiphyService by Delegates.notNull()
 
     fun initialize() {
 
@@ -23,13 +25,22 @@ object GMSRetrofit {
                         .setLevel(HttpLoggingInterceptor.Level.BODY))
                 .build()
 
-        val retrofit = Retrofit.Builder()
+        val flickrRetrofit = Retrofit.Builder()
                 .baseUrl(FLICKR_BASE_URL)
                 .client(okHttpClient)
                 .addConverterFactory(MoshiConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build()
 
-        flickrService = retrofit.create(FlickrService::class.java)
+        flickrService = flickrRetrofit.create(FlickrService::class.java)
+
+        val giphyRetrofit = Retrofit.Builder()
+                .baseUrl(GIPHY_BASE_URL)
+                .client(okHttpClient)
+                .addConverterFactory(MoshiConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .build()
+
+        giphyService = giphyRetrofit.create(GiphyService::class.java)
     }
 }

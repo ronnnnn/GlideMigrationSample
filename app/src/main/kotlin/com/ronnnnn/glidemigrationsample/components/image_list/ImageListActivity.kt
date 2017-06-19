@@ -10,8 +10,7 @@ import android.view.View
 import android.widget.ProgressBar
 import com.ronnnnn.glidemigrationsample.R
 import com.ronnnnn.glidemigrationsample.extentions.bindView
-import com.ronnnnn.glidemigrationsample.models.Photo
-import com.ronnnnn.glidemigrationsample.models.UsageType
+import com.ronnnnn.glidemigrationsample.models.*
 
 /**
  * Created by kokushiseiya on 2017/06/17.
@@ -30,7 +29,7 @@ class ImageListActivity : AppCompatActivity(), ImageListPresenter.ImageListView 
     private var usageType: UsageType? = null
 
     private lateinit var presenter: ImageListPresenter
-    private lateinit var adapter: ImageListRecyclerAdapter
+    private lateinit var adapter: ImageListRecyclerAdapter<Content>
     private lateinit var loadingProgress: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,12 +40,21 @@ class ImageListActivity : AppCompatActivity(), ImageListPresenter.ImageListView 
 
         usageType = intent.getSerializableExtra(KEY_USAGE_TYPE) as? UsageType
 
+        usageType?.let {
+            when (it.contentType) {
+                ContentType.Photo -> {
+                    adapter = ImageListRecyclerAdapter(this, it)
+                }
+
+                ContentType.Gif -> {
+                    adapter = ImageListRecyclerAdapter(this, it)
+                }
+            }
+        }
+
         bindView<RecyclerView>(R.id.image_recycler_view).apply {
             layoutManager = LinearLayoutManager(context)
-            usageType?.let {
-                this@ImageListActivity.adapter = ImageListRecyclerAdapter(context, it)
-                adapter = this@ImageListActivity.adapter
-            }
+            adapter = this@ImageListActivity.adapter
         }
         loadingProgress = bindView(R.id.loading_progress_bar)
 
@@ -59,5 +67,9 @@ class ImageListActivity : AppCompatActivity(), ImageListPresenter.ImageListView 
 
     override fun setPhotos(photoList: List<Photo>) {
         adapter.setItems(photoList)
+    }
+
+    override fun setGifs(gifList: List<Gif>) {
+        adapter.setItems(gifList)
     }
 }

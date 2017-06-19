@@ -17,7 +17,7 @@ data class Photo(
         @Json(name = "isfriend")
         val isFriend: Int,
         @Json(name = "isfamily")
-        val isFamily: Int) {
+        val isFamily: Int) : Content() {
 
     fun getPhotoUrl() = "https://farm$farm.staticflickr.com/$server/${id}_$secret.jpg"
 }

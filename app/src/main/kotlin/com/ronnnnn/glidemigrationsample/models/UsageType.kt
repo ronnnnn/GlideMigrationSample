@@ -9,9 +9,9 @@ import java.io.Serializable
 /**
  * Created by kokushiseiya on 2017/06/17.
  */
-enum class UsageType : Serializable {
-    BasicUsage,
-    Placeholder {
+enum class UsageType(val contentType: ContentType) : Serializable {
+    BasicUsage(ContentType.Photo),
+    Placeholder(ContentType.Photo) {
         override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
             Glide.with(context)
                     .load(imageString)
@@ -19,7 +19,7 @@ enum class UsageType : Serializable {
                     .into(imageView)
         }
     },
-    Error {
+    Error(ContentType.Photo) {
         override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
             Glide.with(context)
                     .load(imageString)
@@ -28,7 +28,7 @@ enum class UsageType : Serializable {
                     .into(imageView)
         }
     },
-    CrossFade {
+    CrossFade(ContentType.Photo) {
         // same behavior with "Placeholder" section
         override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
             Glide.with(context)
@@ -38,7 +38,7 @@ enum class UsageType : Serializable {
                     .into(imageView)
         }
     },
-    CrossFadeWithDuration {
+    CrossFadeWithDuration(ContentType.Photo) {
         override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
             Glide.with(context)
                     .load(imageString)
@@ -47,7 +47,7 @@ enum class UsageType : Serializable {
                     .into(imageView)
         }
     },
-    NotAnimate {
+    NotAnimate(ContentType.Photo) {
         override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
             Glide.with(context)
                     .load(imageString)
@@ -56,7 +56,7 @@ enum class UsageType : Serializable {
                     .into(imageView)
         }
     },
-    Resize {
+    Resize(ContentType.Photo) {
         override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
             Glide.with(context)
                     .load(imageString)
@@ -64,7 +64,7 @@ enum class UsageType : Serializable {
                     .into(imageView)
         }
     },
-    CenterCrop {
+    CenterCrop(ContentType.Photo) {
         override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
             Glide.with(context)
                     .load(imageString)
@@ -72,7 +72,7 @@ enum class UsageType : Serializable {
                     .into(imageView)
         }
     },
-    FitCenter {
+    FitCenter(ContentType.Photo) {
         override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
             Glide.with(context)
                     .load(imageString)
