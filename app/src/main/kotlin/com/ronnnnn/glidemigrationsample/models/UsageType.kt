@@ -1,5 +1,6 @@
 package com.ronnnnn.glidemigrationsample.models
 
+import android.animation.ObjectAnimator
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
@@ -9,6 +10,7 @@ import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.animation.GlideAnimation
+import com.bumptech.glide.request.animation.ViewPropertyAnimation
 import com.bumptech.glide.request.target.SimpleTarget
 import com.ronnnnn.glidemigrationsample.R
 import jp.wasabeef.glide.transformations.BlurTransformation
@@ -224,6 +226,41 @@ enum class UsageType(val contentType: ContentType) : Serializable {
                     .load(imageString)
                     .placeholder(R.drawable.image_placeholder)
                     .bitmapTransform(GrayscaleTransformation(context), BlurTransformation(context, 10))
+                    .into(imageView)
+        }
+    },
+    SlideInAnimation(ContentType.Photo) {
+        override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
+            Glide.with(context)
+                    .load(imageString)
+                    .placeholder(R.drawable.image_placeholder)
+                    .animate(android.R.anim.slide_in_left)
+                    .into(imageView)
+        }
+    },
+    ZoomInAnimation(ContentType.Photo) {
+        override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
+            Glide.with(context)
+                    .load(imageString)
+                    .placeholder(R.drawable.image_placeholder)
+                    .animate(R.anim.zoom_in)
+                    .into(imageView)
+        }
+    },
+    CustomClassAnimation(ContentType.Photo) {
+        val animationObject = ViewPropertyAnimation.Animator { view ->
+            view.alpha = 0f
+
+            val fadeAnim = ObjectAnimator.ofFloat(view, "alpha", 0f, 1f)
+            fadeAnim.duration = 3000
+            fadeAnim.start()
+        }
+
+        override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
+            Glide.with(context)
+                    .load(imageString)
+                    .placeholder(R.drawable.image_placeholder)
+                    .animate(animationObject) // this animation affect not only ImageView but also whole View
                     .into(imageView)
         }
     }
