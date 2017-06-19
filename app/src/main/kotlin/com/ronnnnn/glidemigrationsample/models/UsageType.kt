@@ -55,6 +55,30 @@ enum class UsageType : Serializable {
                     .dontAnimate()
                     .into(imageView)
         }
+    },
+    Resize {
+        override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
+            Glide.with(context)
+                    .load(imageString)
+                    .override(200, 200) // resize image (in pixel) not ImageView before displaying in the target
+                    .into(imageView)
+        }
+    },
+    CenterCrop {
+        override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
+            Glide.with(context)
+                    .load(imageString)
+                    .centerCrop()
+                    .into(imageView)
+        }
+    },
+    FitCenter {
+        override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
+            Glide.with(context)
+                    .load(imageString)
+                    .fitCenter()
+                    .into(imageView)
+        }
     }
     ;
 
