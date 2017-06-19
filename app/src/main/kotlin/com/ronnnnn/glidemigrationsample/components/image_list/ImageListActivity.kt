@@ -40,14 +40,17 @@ class ImageListActivity : AppCompatActivity(), ImageListPresenter.ImageListView 
 
         usageType = intent.getSerializableExtra(KEY_USAGE_TYPE) as? UsageType
 
+        var presenterAction: () -> Unit = {}
         usageType?.let {
             when (it.contentType) {
                 ContentType.Photo -> {
                     adapter = ImageListRecyclerAdapter(this, it)
+                    presenterAction = { presenter.getRecentPhotos() }
                 }
 
                 ContentType.Gif -> {
                     adapter = ImageListRecyclerAdapter(this, it)
+                    presenterAction = { presenter.getTrendingGifs() }
                 }
             }
         }
@@ -58,7 +61,7 @@ class ImageListActivity : AppCompatActivity(), ImageListPresenter.ImageListView 
         }
         loadingProgress = bindView(R.id.loading_progress_bar)
 
-        presenter.getRecentPhotos()
+        presenterAction()
     }
 
     override fun toggleProgressVisibility(isVisible: Boolean) {
