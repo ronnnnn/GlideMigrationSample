@@ -1,9 +1,15 @@
 package com.ronnnnn.glidemigrationsample.models
 
 import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.drawable.Drawable
+import android.support.v4.content.ContextCompat
+import android.support.v7.graphics.Palette
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.animation.GlideAnimation
+import com.bumptech.glide.request.target.SimpleTarget
 import com.ronnnnn.glidemigrationsample.R
 import java.io.Serializable
 
@@ -157,7 +163,50 @@ enum class UsageType(val contentType: ContentType) : Serializable {
                     .into(imageView)
         }
     },
-    ImageRequestPriority(ContentType.Photo)
+    ImageRequestPriority(ContentType.Photo),
+    BitmapTarget(ContentType.Photo) {
+        override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
+            val target = object : SimpleTarget<Bitmap>() {
+                override fun onLoadStarted(placeholder: Drawable?) {
+                    imageView.setImageDrawable(placeholder)
+                }
+
+                override fun onResourceReady(resource: Bitmap?, glideAnimation: GlideAnimation<in Bitmap>?) {
+                    Palette.from(resource).generate { palette ->
+                        val color = palette?.getVibrantColor(ContextCompat.getColor(context, R.color.color_primary))
+                                ?: ContextCompat.getColor(context, R.color.color_primary)
+                        imageView.setImageBitmap(resource)
+                        imageView.setColorFilter(color)
+                    }
+                }
+            }
+
+            Glide.with(context)
+                    .load(imageString)
+                    .asBitmap()
+                    .placeholder(R.drawable.image_placeholder)
+                    .into(target)
+        }
+    },
+    SpecificSizeTarget(ContentType.Photo) {
+        override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
+            val target = object : SimpleTarget<Bitmap>(200, 200) {
+                override fun onLoadStarted(placeholder: Drawable?) {
+                    imageView.setImageDrawable(placeholder)
+                }
+
+                override fun onResourceReady(resource: Bitmap?, glideAnimation: GlideAnimation<in Bitmap>?) {
+                    imageView.setImageBitmap(resource)
+                }
+            }
+
+            Glide.with(context)
+                    .load(imageString)
+                    .asBitmap()
+                    .placeholder(R.drawable.image_placeholder)
+                    .into(target)
+        }
+    }
     ;
 
     open fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
