@@ -11,6 +11,8 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.animation.GlideAnimation
 import com.bumptech.glide.request.target.SimpleTarget
 import com.ronnnnn.glidemigrationsample.R
+import jp.wasabeef.glide.transformations.BlurTransformation
+import jp.wasabeef.glide.transformations.GrayscaleTransformation
 import java.io.Serializable
 
 /**
@@ -205,6 +207,24 @@ enum class UsageType(val contentType: ContentType) : Serializable {
                     .asBitmap()
                     .placeholder(R.drawable.image_placeholder)
                     .into(target)
+        }
+    },
+    CustomTransformation(ContentType.Photo) {
+        override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
+            Glide.with(context)
+                    .load(imageString)
+                    .placeholder(R.drawable.image_placeholder)
+                    .bitmapTransform(BlurTransformation(context, 10))
+                    .into(imageView)
+        }
+    },
+    MultiTransformations(ContentType.Photo) {
+        override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
+            Glide.with(context)
+                    .load(imageString)
+                    .placeholder(R.drawable.image_placeholder)
+                    .bitmapTransform(GrayscaleTransformation(context), BlurTransformation(context, 10))
+                    .into(imageView)
         }
     }
     ;
