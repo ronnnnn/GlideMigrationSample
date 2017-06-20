@@ -30,6 +30,10 @@
         <activity
             android:name=".components.shape_image.ShapeImageActivity"
             android:screenOrientation="portrait" />
+
+        <meta-data
+            android:name="com.ronnnnn.glidemigrationsample.AppGlideModule"
+            android:value="GlideModule" />
     </application>
 
 </manifest>

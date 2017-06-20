@@ -18,9 +18,11 @@ object GMSRetrofit {
     var flickrService: FlickrService by Delegates.notNull()
     var giphyService: GiphyService by Delegates.notNull()
 
+    var okHttpClient: OkHttpClient? = null
+
     fun initialize() {
 
-        val okHttpClient = OkHttpClient.Builder()
+        okHttpClient = OkHttpClient.Builder()
                 .addInterceptor(HttpLoggingInterceptor()
                         .setLevel(HttpLoggingInterceptor.Level.BODY))
                 .build()
