@@ -263,7 +263,9 @@ enum class UsageType(val contentType: ContentType) : Serializable {
                     .animate(animationObject) // this animation affect not only ImageView but also whole View
                     .into(imageView)
         }
-    }
+    },
+    ShapeImageViewWithBadPractice(ContentType.Photo),
+    ShapeImageViewWithGoodPractice(ContentType.Photo)
     ;
 
     open fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {

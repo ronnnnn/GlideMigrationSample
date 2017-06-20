@@ -12,6 +12,10 @@
     <dimen name="margin_36">36dp</dimen>
     <dimen name="margin_40">40dp</dimen>
 
-    <!-- Item Decorations -->
-    <dimen name="divider_height">1dp</dimen>
+    <!-- Border Width -->
+    <dimen name="border_width_1">1dp</dimen>
+    <dimen name="border_width_2">2dp</dimen>
+
+    <!-- View Size -->
+    <dimen name="view_size_240">240dp</dimen>
 </resources>

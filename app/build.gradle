@@ -44,6 +44,9 @@ dependencies {
     // Glide Transformations
     compile 'jp.wasabeef:glide-transformations:2.0.2'
 
+    // Shape Image View
+    compile 'com.github.siyamed:android-shape-imageview:0.9.3@aar'
+
     // Retrofit
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
     compile 'com.squareup.retrofit2:converter-moshi:2.3.0'

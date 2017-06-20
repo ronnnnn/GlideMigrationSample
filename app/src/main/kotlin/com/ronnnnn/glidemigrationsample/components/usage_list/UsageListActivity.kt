@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import com.ronnnnn.glidemigrationsample.R
 import com.ronnnnn.glidemigrationsample.components.image_list.ImageListActivity
+import com.ronnnnn.glidemigrationsample.components.shape_image.ShapeImageActivity
 import com.ronnnnn.glidemigrationsample.components.two_image.MultiImageActivity
 import com.ronnnnn.glidemigrationsample.extentions.bindView
 import com.ronnnnn.glidemigrationsample.models.UsageType
@@ -36,8 +37,13 @@ class UsageListActivity : AppCompatActivity(), UsageListRecyclerAdapter.UsageLis
                 startActivity(MultiImageActivity.createIntent(this))
             }
 
+            UsageType.ShapeImageViewWithBadPractice,
+            UsageType.ShapeImageViewWithGoodPractice -> {
+                startActivity(ShapeImageActivity.createIntetnt(this, usageType))
+            }
+
             else -> {
-                startActivity(ImageListActivity.createIntent(this, UsageType.values()[position]))
+                startActivity(ImageListActivity.createIntent(this, usageType))
             }
         }
     }

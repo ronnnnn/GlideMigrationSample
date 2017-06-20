@@ -27,6 +27,9 @@
         <activity
             android:name=".components.two_image.MultiImageActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".components.shape_image.ShapeImageActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

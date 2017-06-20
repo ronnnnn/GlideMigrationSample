@@ -13,7 +13,7 @@ import com.ronnnnn.glidemigrationsample.R
  */
 class SimpleItemDecoration(private val context: Context, @ColorRes private val colorId: Int, private val margin: Int = 0) : RecyclerView.ItemDecoration() {
 
-    private val dividerHeight: Int = context.resources.getDimensionPixelSize(R.dimen.divider_height)
+    private val dividerHeight: Int = context.resources.getDimensionPixelSize(R.dimen.border_width_1)
     private val dividerPaint: Paint = Paint().apply {
         color = ContextCompat.getColor(context, colorId)
     }
