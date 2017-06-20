@@ -1,6 +1,6 @@
-package com.ronnnnn.glidemigrationsample.services
+package com.ronnnnn.glidemigrationsample_glidev4.services
 
-import com.ronnnnn.glidemigrationsample.models.response.TrendingGifsResponse
+import com.ronnnnn.glidemigrationsample_glidev4.models.response.TrendingGifsResponse
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query

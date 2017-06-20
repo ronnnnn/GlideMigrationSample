@@ -1,7 +1,7 @@
-package com.ronnnnn.glidemigrationsample.services.sources
+package com.ronnnnn.glidemigrationsample_glidev4.services.sources
 
-import com.ronnnnn.glidemigrationsample.models.response.TrendingGifsResponse
-import com.ronnnnn.glidemigrationsample.services.GiphyService
+import com.ronnnnn.glidemigrationsample_glidev4.models.response.TrendingGifsResponse
+import com.ronnnnn.glidemigrationsample_glidev4.services.GiphyService
 import io.reactivex.Single
 
 /**

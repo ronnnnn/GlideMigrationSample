@@ -1,7 +1,7 @@
-package com.ronnnnn.glidemigrationsample.services.sources
+package com.ronnnnn.glidemigrationsample_glidev4.services.sources
 
-import com.ronnnnn.glidemigrationsample.models.response.RecentPhotosResponse
-import com.ronnnnn.glidemigrationsample.services.FlickrService
+import com.ronnnnn.glidemigrationsample_glidev4.models.response.RecentPhotosResponse
+import com.ronnnnn.glidemigrationsample_glidev4.services.FlickrService
 import io.reactivex.Single
 
 /**
