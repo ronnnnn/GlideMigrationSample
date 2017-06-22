@@ -26,10 +26,8 @@ class MyOkHttpAppGlideModule : AppGlideModule() {
 
     override fun registerComponents(context: Context?, registry: Registry?) {
         val client = GMSRetrofit.okHttpClient
-        registry?.append(GlideUrl::class.java, InputStream::class.java, OkHttpUrlLoader.Factory(client))
+        registry?.replace(GlideUrl::class.java, InputStream::class.java, OkHttpUrlLoader.Factory(client))
     }
 
-    override fun isManifestParsingEnabled(): Boolean {
-        return false
-    }
+    override fun isManifestParsingEnabled(): Boolean = false
 }
