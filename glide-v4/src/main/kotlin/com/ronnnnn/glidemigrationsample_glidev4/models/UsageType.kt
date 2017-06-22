@@ -7,7 +7,6 @@ import android.graphics.drawable.Drawable
 import android.support.v4.content.ContextCompat
 import android.support.v7.graphics.Palette
 import android.widget.ImageView
-import com.bumptech.glide.Glide
 import com.bumptech.glide.load.MultiTransformation
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
@@ -220,7 +219,7 @@ enum class UsageType(val contentType: ContentType) : Serializable {
             GlideApp.with(context)
                     .load(imageString)
                     .placeholder(R.drawable.image_placeholder)
-                    .transform(BlurTransformation(context, 10))
+                    .transform(BlurTransformation(10))
                     .into(imageView)
         }
     },
@@ -229,7 +228,7 @@ enum class UsageType(val contentType: ContentType) : Serializable {
             GlideApp.with(context)
                     .load(imageString)
                     .placeholder(R.drawable.image_placeholder)
-                    .transform(MultiTransformation(GrayscaleTransformation(context), BlurTransformation(context, 10)))
+                    .transform(MultiTransformation(GrayscaleTransformation(), BlurTransformation(10)))
                     .into(imageView)
         }
     },
