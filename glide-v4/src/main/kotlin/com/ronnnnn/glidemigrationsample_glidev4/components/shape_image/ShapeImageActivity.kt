@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.ProgressBar
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.BitmapTransitionOptions
 import com.ronnnnn.glidemigrationsample_glidev4.R
 import com.ronnnnn.glidemigrationsample_glidev4.extentions.bindView
 import com.ronnnnn.glidemigrationsample_glidev4.models.Photo
@@ -56,30 +57,32 @@ class ShapeImageActivity : AppCompatActivity(), ShapeImagePresenter.ShapeImageVi
     override fun setImages(photoList: List<Photo>) {
         when (usageType) {
             UsageType.ShapeImageViewWithBadPractice -> {
-                Glide.with(this)
+                GlideApp.with(this)
                         .load(photoList[0].getPhotoUrl())
                         .placeholder(R.drawable.image_placeholder)
+                        .transition(BitmapTransitionOptions.withCrossFade())
                         .into(circleImageView)
 
-                Glide.with(this)
+                GlideApp.with(this)
                         .load(photoList[1].getPhotoUrl())
                         .placeholder(R.drawable.image_placeholder)
+                        .transition(BitmapTransitionOptions().transition(android.R.anim.fade_in))
                         .into(diamondImageView)
             }
 
             UsageType.ShapeImageViewWithGoodPractice -> {
-                Glide.with(this)
-                        .load(photoList[0].getPhotoUrl())
+                GlideApp.with(this)
                         .asBitmap()
+                        .load(photoList[0].getPhotoUrl())
                         .placeholder(R.drawable.image_placeholder)
-                        .animate(android.R.anim.fade_in)
+                        .transition(BitmapTransitionOptions().transition(android.R.anim.fade_in))
                         .into(circleImageView)
 
-                Glide.with(this)
-                        .load(photoList[1].getPhotoUrl())
+                GlideApp.with(this)
                         .asBitmap()
+                        .load(photoList[1].getPhotoUrl())
                         .placeholder(R.drawable.image_placeholder)
-                        .animate(android.R.anim.fade_in)
+                        .transition(BitmapTransitionOptions().transition((android.R.anim.fade_in)))
                         .into(diamondImageView)
             }
         }
