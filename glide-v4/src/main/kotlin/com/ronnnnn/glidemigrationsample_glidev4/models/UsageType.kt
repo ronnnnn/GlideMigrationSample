@@ -10,11 +10,10 @@ import android.widget.ImageView
 import com.bumptech.glide.load.MultiTransformation
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
-import com.bumptech.glide.request.animation.GlideAnimation
-import com.bumptech.glide.request.animation.ViewPropertyAnimation
 import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
 import com.bumptech.glide.request.transition.ViewPropertyTransition
+import com.ronnnnn.glidemigrationsample_glidev4.GlideApp
 import com.ronnnnn.glidemigrationsample_glidev4.R
 import jp.wasabeef.glide.transformations.BlurTransformation
 import jp.wasabeef.glide.transformations.GrayscaleTransformation
@@ -48,7 +47,7 @@ enum class UsageType(val contentType: ContentType) : Serializable {
             GlideApp.with(context)
                     .load(imageString)
                     .placeholder(R.drawable.image_placeholder)
-                    .transitions(DrawableTransitionOptions.withCrossFade())
+                    .transition(DrawableTransitionOptions.withCrossFade())
                     .into(imageView)
         }
     },
@@ -57,7 +56,7 @@ enum class UsageType(val contentType: ContentType) : Serializable {
             GlideApp.with(context)
                     .load(imageString)
                     .placeholder(R.drawable.image_placeholder)
-                    .transitions(DrawableTransitionOptions.withCrossFade(1000)) // default duration is 300
+                    .transition(DrawableTransitionOptions.withCrossFade(1000)) // default duration is 300
                     .into(imageView)
         }
     },
