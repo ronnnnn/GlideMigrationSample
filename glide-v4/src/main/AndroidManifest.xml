@@ -30,6 +30,9 @@
         <activity
             android:name=".components.shape_image.ShapeImageActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".components.transparent_image.TransparentImageActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

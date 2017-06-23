@@ -267,7 +267,9 @@ enum class UsageType(val contentType: ContentType) : Serializable {
         }
     },
     ShapeImageViewWithBadPractice(ContentType.Photo),
-    ShapeImageViewWithGoodPractice(ContentType.Photo)
+    ShapeImageViewWithGoodPractice(ContentType.Photo),
+    TransparentImageWithBadPractice(ContentType.Photo),
+    TransparentImageWithGoodPractice(ContentType.Photo)
     ;
 
     open fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
