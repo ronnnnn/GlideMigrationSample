@@ -49,6 +49,9 @@ dependencies {
     // Shape Image View
     compile 'com.github.siyamed:android-shape-imageview:0.9.3@aar'
 
+    // Markdown View
+    compile 'com.github.tiagohm.MarkdownView:library:0.16.0'
+
     // Retrofit
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
     compile 'com.squareup.retrofit2:converter-moshi:2.3.0'

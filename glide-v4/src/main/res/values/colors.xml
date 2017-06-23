@@ -6,6 +6,7 @@
     <color name="color_accent">#EF7B45</color>
 
     <color name="text_primary">@color/color_primary_dark</color>
+    <color name="text_accent">@color/color_accent</color>
 
     <color name="background_primary">@android:color/white</color>
 

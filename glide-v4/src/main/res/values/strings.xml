@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">GMS (v4)</string>
+
+    <string name="bottom_sheet_title">CODE</string>
 </resources>
