@@ -9,6 +9,7 @@
     <color name="text_accent">@color/color_accent</color>
 
     <color name="background_primary">@android:color/white</color>
+    <color name="background_primary_DD">#DDFFFFFF</color>
 
     <color name="usage_list_divider_color">@color/color_primary_dark_44</color>
 </resources>

@@ -3,16 +3,19 @@ package com.ronnnnn.glidemigrationsample_glidev4.components.shape_image
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.support.design.widget.BottomSheetBehavior
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.ImageView
 import android.widget.ProgressBar
+import android.widget.TextView
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.ronnnnn.glidemigrationsample_glidev4.GlideApp
 import com.ronnnnn.glidemigrationsample_glidev4.R
 import com.ronnnnn.glidemigrationsample_glidev4.extentions.bindView
 import com.ronnnnn.glidemigrationsample_glidev4.models.Photo
 import com.ronnnnn.glidemigrationsample_glidev4.models.UsageType
+import com.ronnnnn.glidemigrationsample_glidev4.views.MarkdownBottomSheetView
 
 /**
  * Created by kokushiseiya on 2017/06/20.
@@ -46,6 +49,36 @@ class ShapeImageActivity : AppCompatActivity(), ShapeImagePresenter.ShapeImageVi
         circleImageView = bindView(R.id.circle_image_view)
         diamondImageView = bindView(R.id.diamond_image_view)
         loadingProgress = bindView(R.id.loading_progress_bar)
+        val indicatorImageView = bindView<ImageView>(R.id.indicator_image_view)
+        val indicatorTextView = bindView<TextView>(R.id.indicator_text_view)
+        val markdownBottomSheetView = bindView<MarkdownBottomSheetView>(R.id.markdown_bottom_sheet_view).apply {
+            loadMarkdownFromAsset("test.md")
+        }
+        BottomSheetBehavior.from(markdownBottomSheetView).apply {
+            peekHeight = (resources.getDimension(R.dimen.margin_44)
+                    + resources.getDimension(R.dimen.text_size_22)
+                    + resources.getDimension(R.dimen.margin_8)).toInt()
+
+            setBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
+                override fun onStateChanged(bottomSheet: View, newState: Int) {
+                    when (newState) {
+                        BottomSheetBehavior.STATE_EXPANDED -> {
+                            indicatorImageView.setImageResource(R.drawable.ic_keyboard_arrow_down_black_36dp)
+                            indicatorTextView.setText(R.string.hide_code)
+                        }
+
+                        BottomSheetBehavior.STATE_COLLAPSED -> {
+                            indicatorImageView.setImageResource(R.drawable.ic_keyboard_arrow_up_black_36dp)
+                            indicatorTextView.setText(R.string.view_code)
+                        }
+                    }
+                }
+
+                override fun onSlide(bottomSheet: View, slideOffset: Float) {
+                    // no-op
+                }
+            })
+        }
 
         presenter.loadRecentPhotos()
     }
