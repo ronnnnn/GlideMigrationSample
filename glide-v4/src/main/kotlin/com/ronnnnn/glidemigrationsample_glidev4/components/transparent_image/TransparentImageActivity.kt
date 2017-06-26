@@ -2,9 +2,11 @@ package com.ronnnnn.glidemigrationsample_glidev4.components.transparent_image
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.support.design.widget.BottomSheetBehavior
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.Toolbar
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -38,6 +40,15 @@ class TransparentImageActivity : AppCompatActivity() {
         setContentView(R.layout.activity_transparent_image)
 
         usageType = intent.getSerializableExtra(KEY_USAGE_TYPE) as? UsageType
+
+        initializeViews()
+    }
+
+    private fun initializeViews() {
+        bindView<Toolbar>(R.id.toolbar).run {
+            usageType?.let { title = it.title }
+            setTitleTextColor(Color.WHITE)
+        }
 
         val imageView: ImageView = bindView(R.id.image_view)
 

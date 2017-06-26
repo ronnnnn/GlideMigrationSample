@@ -2,11 +2,13 @@ package com.ronnnnn.glidemigrationsample.components.image_list
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.support.design.widget.BottomSheetBehavior
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.Toolbar
 import android.view.View
 import android.widget.ImageView
 import android.widget.ProgressBar
@@ -60,7 +62,17 @@ class ImageListActivity : AppCompatActivity(), ImageListPresenter.ImageListView 
             }
         }
 
-        bindView<RecyclerView>(R.id.image_recycler_view).apply {
+        initializeViews()
+
+        presenterAction()
+    }
+
+    private fun initializeViews() {
+        bindView<Toolbar>(R.id.toolbar).run {
+            usageType?.let { title = it.title }
+            setTitleTextColor(Color.WHITE)
+        }
+        bindView<RecyclerView>(R.id.image_recycler_view).run {
             layoutManager = LinearLayoutManager(context)
             adapter = this@ImageListActivity.adapter
         }
@@ -99,8 +111,6 @@ class ImageListActivity : AppCompatActivity(), ImageListPresenter.ImageListView 
                 }
             })
         }
-
-        presenterAction()
     }
 
     override fun toggleProgressVisibility(isVisible: Boolean) {

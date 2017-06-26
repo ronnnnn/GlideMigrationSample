@@ -2,9 +2,11 @@ package com.ronnnnn.glidemigrationsample_glidev4.components.shape_image
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.support.design.widget.BottomSheetBehavior
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.Toolbar
 import android.view.View
 import android.widget.ImageView
 import android.widget.ProgressBar
@@ -47,6 +49,16 @@ class ShapeImageActivity : AppCompatActivity(), ShapeImagePresenter.ShapeImageVi
 
         presenter = ShapeImagePresenter(this)
 
+        initializeViews()
+
+        presenter.loadRecentPhotos()
+    }
+
+    private fun initializeViews() {
+        bindView<Toolbar>(R.id.toolbar).run {
+            usageType?.let { title = it.title }
+            setTitleTextColor(Color.WHITE)
+        }
         circleImageView = bindView(R.id.circle_image_view)
         diamondImageView = bindView(R.id.diamond_image_view)
         loadingProgress = bindView(R.id.loading_progress_bar)
@@ -84,8 +96,6 @@ class ShapeImageActivity : AppCompatActivity(), ShapeImagePresenter.ShapeImageVi
                 }
             })
         }
-
-        presenter.loadRecentPhotos()
     }
 
     override fun toggleLoadingProgressVisibility(isVisible: Boolean) {

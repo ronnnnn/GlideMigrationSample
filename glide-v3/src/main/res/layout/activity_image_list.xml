@@ -5,29 +5,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="?attr/actionBarSize">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/image_recycler_view"
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:listitem="@layout/item_image_list_recycler_view" />
+            android:layout_height="?attr/actionBarSize"
+            app:layout_scrollFlags="scroll|enterAlways" />
+    </android.support.design.widget.AppBarLayout>
 
-        <ProgressBar
-            android:id="@+id/loading_progress_bar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:visibility="invisible" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/image_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:listitem="@layout/item_image_list_recycler_view" />
 
-    </RelativeLayout>
+    <ProgressBar
+        android:id="@+id/loading_progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="invisible" />
 
     <com.ronnnnn.glidemigrationsample.views.MarkdownBottomSheetView
         android:id="@+id/markdown_bottom_sheet_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:elevation="@dimen/elevation_16"
         app:layout_behavior="@string/bottom_sheet_behavior" />
 </android.support.design.widget.CoordinatorLayout>

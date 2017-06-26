@@ -4,50 +4,57 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <FrameLayout
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="?attr/actionBarSize">
 
-        <LinearLayout
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="?attr/actionBarSize" />
+    </android.support.design.widget.AppBarLayout>
 
-            <com.github.siyamed.shapeimageview.CircularImageView
-                android:id="@+id/circle_image_view"
-                android:layout_width="@dimen/view_size_240"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="@dimen/margin_8"
-                android:layout_marginTop="@dimen/margin_20"
-                app:siBorderColor="@color/color_primary_dark"
-                app:siBorderWidth="@dimen/border_width_2" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <com.github.siyamed.shapeimageview.DiamondImageView
-                android:id="@+id/diamond_image_view"
-                android:layout_width="@dimen/view_size_240"
-                android:layout_height="0dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="@dimen/margin_8"
-                android:layout_marginTop="@dimen/margin_20"
-                android:layout_weight="1"
-                app:siBorderColor="@color/color_primary_dark"
-                app:siBorderWidth="@dimen/border_width_2" />
-
-        </LinearLayout>
-
-        <ProgressBar
-            android:id="@+id/loading_progress_bar"
-            android:layout_width="wrap_content"
+        <com.github.siyamed.shapeimageview.CircularImageView
+            android:id="@+id/circle_image_view"
+            android:layout_width="@dimen/view_size_240"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:visibility="invisible" />
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/margin_8"
+            android:layout_marginTop="@dimen/margin_20"
+            app:siBorderColor="@color/color_primary_dark"
+            app:siBorderWidth="@dimen/border_width_2" />
 
-    </FrameLayout>
+        <com.github.siyamed.shapeimageview.DiamondImageView
+            android:id="@+id/diamond_image_view"
+            android:layout_width="@dimen/view_size_240"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/margin_8"
+            android:layout_marginTop="@dimen/margin_20"
+            android:layout_weight="1"
+            app:siBorderColor="@color/color_primary_dark"
+            app:siBorderWidth="@dimen/border_width_2" />
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/loading_progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="invisible" />
 
     <com.ronnnnn.glidemigrationsample_glidev4.views.MarkdownBottomSheetView
         android:id="@+id/markdown_bottom_sheet_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:elevation="@dimen/elevation_16"
         app:layout_behavior="@string/bottom_sheet_behavior" />
+
 </android.support.design.widget.CoordinatorLayout>

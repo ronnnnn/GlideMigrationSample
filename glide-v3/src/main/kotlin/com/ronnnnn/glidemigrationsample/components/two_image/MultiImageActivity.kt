@@ -2,9 +2,11 @@ package com.ronnnnn.glidemigrationsample.components.two_image
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.support.design.widget.BottomSheetBehavior
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.Toolbar
 import android.view.View
 import android.widget.ImageView
 import android.widget.ProgressBar
@@ -38,6 +40,17 @@ class MultiImageActivity : AppCompatActivity(), MultiImagePresenter.MultiImageVi
         setContentView(R.layout.activity_multi_image)
 
         presenter = MultiImagePresenter(this)
+
+        initializeViews()
+
+        presenter.loadRecentPhotos()
+    }
+
+    private fun initializeViews() {
+        bindView<Toolbar>(R.id.toolbar).run {
+            title = UsageType.MultiTransformations.title
+            setTitleTextColor(Color.WHITE)
+        }
 
         firstImageView = bindView(R.id.first_image_view)
         secondImageView = bindView(R.id.second_image_view)
@@ -76,8 +89,6 @@ class MultiImageActivity : AppCompatActivity(), MultiImagePresenter.MultiImageVi
                 }
             })
         }
-
-        presenter.loadRecentPhotos()
     }
 
     override fun setLoadingProgressVisibility(isVisible: Boolean) {

@@ -4,23 +4,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="?attr/actionBarSize">
 
-        <com.ronnnnn.glidemigrationsample_glidev4.views.SquareImageView
-            android:id="@+id/image_view"
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginEnd="@dimen/margin_40"
-            android:layout_marginStart="@dimen/margin_40" />
+            android:layout_height="?attr/actionBarSize" />
+    </android.support.design.widget.AppBarLayout>
 
-    </RelativeLayout>
+    <com.ronnnnn.glidemigrationsample_glidev4.views.SquareImageView
+        android:id="@+id/image_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="@dimen/margin_40"
+        android:layout_marginStart="@dimen/margin_40" />
 
     <com.ronnnnn.glidemigrationsample_glidev4.views.MarkdownBottomSheetView
         android:id="@+id/markdown_bottom_sheet_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:elevation="@dimen/elevation_16"
         app:layout_behavior="@string/bottom_sheet_behavior" />
 </android.support.design.widget.CoordinatorLayout>
