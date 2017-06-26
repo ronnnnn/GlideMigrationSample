@@ -23,6 +23,8 @@ import com.ronnnnn.glidemigrationsample.views.MarkdownBottomSheetView
 class MultiImageActivity : AppCompatActivity(), MultiImagePresenter.MultiImageView {
 
     companion object {
+        private const val INITIAL_ALPHA = 0.8f
+
         fun createIntent(context: Context) = Intent(context, MultiImageActivity::class.java)
     }
 
@@ -41,6 +43,9 @@ class MultiImageActivity : AppCompatActivity(), MultiImagePresenter.MultiImageVi
         secondImageView = bindView(R.id.second_image_view)
         loadingProgressBar = bindView(R.id.loading_progress_bar)
 
+        val bottomSheetBackgroundView = bindView<View>(R.id.bottom_sheet_background_view).apply {
+            alpha = INITIAL_ALPHA
+        }
         val indicatorImageView = bindView<ImageView>(R.id.indicator_image_view)
         val indicatorTextView = bindView<TextView>(R.id.indicator_text_view)
         val markdownBottomSheetView = bindView<MarkdownBottomSheetView>(R.id.markdown_bottom_sheet_view).apply {
@@ -67,7 +72,7 @@ class MultiImageActivity : AppCompatActivity(), MultiImagePresenter.MultiImageVi
                 }
 
                 override fun onSlide(bottomSheet: View, slideOffset: Float) {
-                    // no-op
+                    bottomSheetBackgroundView.alpha = INITIAL_ALPHA + slideOffset * (1f - INITIAL_ALPHA)
                 }
             })
         }

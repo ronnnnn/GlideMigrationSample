@@ -23,6 +23,7 @@ class TransparentImageActivity : AppCompatActivity() {
 
     companion object {
         private const val KEY_USAGE_TYPE = "key_usage_type"
+        private const val INITIAL_ALPHA = 0.8f
 
         fun createIntent(context: Context, usageType: UsageType): Intent =
                 Intent(context, TransparentImageActivity::class.java).apply {
@@ -64,6 +65,9 @@ class TransparentImageActivity : AppCompatActivity() {
             }
         }
 
+        val bottomSheetBackgroundView = bindView<View>(R.id.bottom_sheet_background_view).apply {
+            alpha = INITIAL_ALPHA
+        }
         val indicatorImageView = bindView<ImageView>(R.id.indicator_image_view)
         val indicatorTextView = bindView<TextView>(R.id.indicator_text_view)
         val markdownBottomSheetView = bindView<MarkdownBottomSheetView>(R.id.markdown_bottom_sheet_view).apply {
@@ -90,7 +94,7 @@ class TransparentImageActivity : AppCompatActivity() {
                 }
 
                 override fun onSlide(bottomSheet: View, slideOffset: Float) {
-                    // no-op
+                    bottomSheetBackgroundView.alpha = INITIAL_ALPHA + slideOffset * (1f - INITIAL_ALPHA)
                 }
             })
         }
