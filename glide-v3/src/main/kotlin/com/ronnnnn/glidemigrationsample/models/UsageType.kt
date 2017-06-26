@@ -20,7 +20,7 @@ import java.io.Serializable
 /**
  * Created by kokushiseiya on 2017/06/17.
  */
-enum class UsageType(val contentType: ContentType, mdFileName: String) : Serializable {
+enum class UsageType(val contentType: ContentType, val mdFileName: String) : Serializable {
     BasicUsage(ContentType.Photo, "v3_basic_usage.md"),
     Placeholder(ContentType.Photo, "v3_placeholder.md") {
         override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
@@ -220,7 +220,7 @@ enum class UsageType(val contentType: ContentType, mdFileName: String) : Seriali
                     .into(imageView)
         }
     },
-    MultiTransformations(ContentType.Photo, "v3_multi_transformation.md") {
+    MultiTransformations(ContentType.Photo, "v3_multi_transformations.md") {
         override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
             Glide.with(context)
                     .load(imageString)
@@ -251,9 +251,9 @@ enum class UsageType(val contentType: ContentType, mdFileName: String) : Seriali
         val animationObject = ViewPropertyAnimation.Animator { view ->
             view.alpha = 0f
 
-            val fadeAnim = ObjectAnimator.ofFloat(view, "alpha", 0f, 1f)
-            fadeAnim.duration = 3000
-            fadeAnim.start()
+            ObjectAnimator.ofFloat(view, "alpha", 0f, 1f).apply {
+                duration = 3000
+            }.start()
         }
 
         override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {

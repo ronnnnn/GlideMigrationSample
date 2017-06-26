@@ -253,9 +253,9 @@ enum class UsageType(val contentType: ContentType, val mdFileName: String) : Ser
         val animationObject = ViewPropertyTransition.Animator { view ->
             view.alpha = 0f
 
-            val fadeAnim = ObjectAnimator.ofFloat(view, "alpha", 0f, 1f)
-            fadeAnim.duration = 3000
-            fadeAnim.start()
+            ObjectAnimator.ofFloat(view, "alpha", 0f, 1f).apply {
+                duration = 300
+            }.start()
         }
 
         override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {

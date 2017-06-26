@@ -14,6 +14,7 @@ import com.bumptech.glide.Priority
 import com.ronnnnn.glidemigrationsample.R
 import com.ronnnnn.glidemigrationsample.extentions.bindView
 import com.ronnnnn.glidemigrationsample.models.Photo
+import com.ronnnnn.glidemigrationsample.models.UsageType
 import com.ronnnnn.glidemigrationsample.views.MarkdownBottomSheetView
 
 /**
@@ -43,7 +44,7 @@ class MultiImageActivity : AppCompatActivity(), MultiImagePresenter.MultiImageVi
         val indicatorImageView = bindView<ImageView>(R.id.indicator_image_view)
         val indicatorTextView = bindView<TextView>(R.id.indicator_text_view)
         val markdownBottomSheetView = bindView<MarkdownBottomSheetView>(R.id.markdown_bottom_sheet_view).apply {
-            loadMarkdownFromAsset("test.md")
+            loadMarkdownFromAsset(UsageType.ImageRequestPriority.mdFileName)
         }
         BottomSheetBehavior.from(markdownBottomSheetView).apply {
             peekHeight = (resources.getDimension(R.dimen.margin_44)

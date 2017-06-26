@@ -39,7 +39,7 @@ class UsageListActivity : AppCompatActivity(), UsageListRecyclerAdapter.UsageLis
 
             UsageType.ShapeImageViewWithBadPractice,
             UsageType.ShapeImageViewWithGoodPractice -> {
-                startActivity(ShapeImageActivity.createIntetnt(this, usageType))
+                startActivity(ShapeImageActivity.createIntent(this, usageType))
             }
 
             else -> {

@@ -52,7 +52,7 @@ class ShapeImageActivity : AppCompatActivity(), ShapeImagePresenter.ShapeImageVi
         val indicatorImageView = bindView<ImageView>(R.id.indicator_image_view)
         val indicatorTextView = bindView<TextView>(R.id.indicator_text_view)
         val markdownBottomSheetView = bindView<MarkdownBottomSheetView>(R.id.markdown_bottom_sheet_view).apply {
-            loadMarkdownFromAsset("test.md")
+            usageType?.let { loadMarkdownFromAsset(it.mdFileName) }
         }
         BottomSheetBehavior.from(markdownBottomSheetView).apply {
             peekHeight = (resources.getDimension(R.dimen.margin_44)
