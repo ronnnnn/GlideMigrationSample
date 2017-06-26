@@ -11,6 +11,7 @@
     <dimen name="margin_32">32dp</dimen>
     <dimen name="margin_36">36dp</dimen>
     <dimen name="margin_40">40dp</dimen>
+    <dimen name="margin_44">44dp</dimen>
 
     <!-- Border Width -->
     <dimen name="border_width_1">1dp</dimen>
@@ -18,4 +19,7 @@
 
     <!-- View Size -->
     <dimen name="view_size_240">240dp</dimen>
+
+    <!-- Text Size -->
+    <dimen name="text_size_22">22sp</dimen>
 </resources>
