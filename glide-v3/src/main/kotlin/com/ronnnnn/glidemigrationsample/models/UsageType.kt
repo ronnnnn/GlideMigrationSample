@@ -20,9 +20,18 @@ import java.io.Serializable
 /**
  * Created by kokushiseiya on 2017/06/17.
  */
-enum class UsageType(val contentType: ContentType, val mdFileName: String) : Serializable {
-    BasicUsage(ContentType.Photo, "v3_basic_usage.md"),
-    Placeholder(ContentType.Photo, "v3_placeholder.md") {
+enum class UsageType(val contentType: ContentType, val title: String, val subTitle: String, val mdFileName: String) : Serializable {
+    BasicUsage(
+            ContentType.Photo,
+            "Basic Usage",
+            "Basic Usage for Glide V3",
+            "v3_basic_usage.md"
+    ),
+    Placeholder(
+            ContentType.Photo,
+            "Placeholder",
+            "How to set placeholder when loading an image",
+            "v3_placeholder.md") {
         override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
             Glide.with(context)
                     .load(imageString)
@@ -30,7 +39,11 @@ enum class UsageType(val contentType: ContentType, val mdFileName: String) : Ser
                     .into(imageView)
         }
     },
-    Error(ContentType.Photo, "v3_error.md") {
+    Error(
+            ContentType.Photo,
+            "Error",
+            "How to set an error image when loading is failed",
+            "v3_error.md") {
         override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
             Glide.with(context)
                     .load(imageString)
@@ -39,7 +52,11 @@ enum class UsageType(val contentType: ContentType, val mdFileName: String) : Ser
                     .into(imageView)
         }
     },
-    CrossFade(ContentType.Photo, "v3_cross_fade.md") {
+    CrossFade(
+            ContentType.Photo,
+            "Cross Fade",
+            "How to set cross fade between a loaded image and placeholder",
+            "v3_cross_fade.md") {
         // same behavior with "Placeholder" section
         override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
             Glide.with(context)
@@ -49,7 +66,11 @@ enum class UsageType(val contentType: ContentType, val mdFileName: String) : Ser
                     .into(imageView)
         }
     },
-    CrossFadeWithDuration(ContentType.Photo, "v3_cross_fade_with_duration.md") {
+    CrossFadeWithDuration(
+            ContentType.Photo,
+            "Cross Fade",
+            "How to customize cross fade duration",
+            "v3_cross_fade_with_duration.md") {
         override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
             Glide.with(context)
                     .load(imageString)
@@ -58,7 +79,11 @@ enum class UsageType(val contentType: ContentType, val mdFileName: String) : Ser
                     .into(imageView)
         }
     },
-    NotAnimate(ContentType.Photo, "v3_not_animate.md") {
+    NotAnimate(
+            ContentType.Photo,
+            "Not Animate",
+            "How to reject any animations",
+            "v3_not_animate.md") {
         override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
             Glide.with(context)
                     .load(imageString)
@@ -67,7 +92,11 @@ enum class UsageType(val contentType: ContentType, val mdFileName: String) : Ser
                     .into(imageView)
         }
     },
-    Resize(ContentType.Photo, "v3_resize.md") {
+    Resize(
+            ContentType.Photo,
+            "Resize",
+            "How to resize a loading image resource",
+            "v3_resize.md") {
         override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
             Glide.with(context)
                     .load(imageString)
@@ -76,7 +105,11 @@ enum class UsageType(val contentType: ContentType, val mdFileName: String) : Ser
                     .into(imageView)
         }
     },
-    CenterCrop(ContentType.Photo, "v3_center_crop.md") {
+    CenterCrop(
+            ContentType.Photo,
+            "Center Crop",
+            "How to crop an image with CenterCrop",
+            "v3_center_crop.md") {
         override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
             Glide.with(context)
                     .load(imageString)
@@ -85,7 +118,11 @@ enum class UsageType(val contentType: ContentType, val mdFileName: String) : Ser
                     .into(imageView)
         }
     },
-    FitCenter(ContentType.Photo, "v3_fit_center.md") {
+    FitCenter(
+            ContentType.Photo,
+            "Fit Center",
+            "How to crop an image with FitCenter",
+            "v3_fit_center.md") {
         override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
             Glide.with(context)
                     .load(imageString)
@@ -94,7 +131,11 @@ enum class UsageType(val contentType: ContentType, val mdFileName: String) : Ser
                     .into(imageView)
         }
     },
-    Gif(ContentType.Gif, "v3_gif.md") {
+    Gif(
+            ContentType.Gif,
+            "Gif",
+            "How to set gif",
+            "v3_gif.md") {
         override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
             Glide.with(context)
                     .load(imageString)
@@ -102,7 +143,11 @@ enum class UsageType(val contentType: ContentType, val mdFileName: String) : Ser
                     .into(imageView)
         }
     },
-    GifOnly(ContentType.Gif, "v3_gif_only.md") {
+    GifOnly(
+            ContentType.Gif,
+            "Gif Only",
+            "How to show only gif",
+            "v3_gif_only.md") {
         override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
             Glide.with(context)
                     .load(imageString)
@@ -112,7 +157,11 @@ enum class UsageType(val contentType: ContentType, val mdFileName: String) : Ser
                     .into(imageView)
         }
     },
-    FastLoadGif(ContentType.Gif, "v3_fast_load_gif.md") {
+    FastLoadGif(
+            ContentType.Gif,
+            "Fast Load Gif",
+            "How to load gif faster",
+            "v3_fast_load_gif.md") {
         override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
             Glide.with(context)
                     .load(imageString)
@@ -121,7 +170,11 @@ enum class UsageType(val contentType: ContentType, val mdFileName: String) : Ser
                     .into(imageView)
         }
     },
-    GifAsBitmap(ContentType.Gif, "v3_gif_as_bitmap.md") {
+    GifAsBitmap(
+            ContentType.Gif,
+            "Gif as Bitmap",
+            "how to load gif as Bitmap",
+            "v3_gif_as_bitmap.md") {
         override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
             Glide.with(context)
                     .load(imageString)
@@ -130,7 +183,11 @@ enum class UsageType(val contentType: ContentType, val mdFileName: String) : Ser
                     .into(imageView)
         }
     },
-    NoMemoryCache(ContentType.Photo, "v3_no_memory_cache.md") {
+    NoMemoryCache(
+            ContentType.Photo,
+            "No Memory Cache",
+            "How to store only disk cache",
+            "v3_no_memory_cache.md") {
         override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
             Glide.with(context)
                     .load(imageString)
@@ -139,7 +196,11 @@ enum class UsageType(val contentType: ContentType, val mdFileName: String) : Ser
                     .into(imageView)
         }
     },
-    NoDiskCache(ContentType.Photo, "v3_no_disk_cache.md") {
+    NoDiskCache(
+            ContentType.Photo,
+            "No Disk Cache",
+            "How to store only memory cache",
+            "v3_no_disk_cache.md") {
         override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
             Glide.with(context)
                     .load(imageString)
@@ -148,7 +209,11 @@ enum class UsageType(val contentType: ContentType, val mdFileName: String) : Ser
                     .into(imageView)
         }
     },
-    NoCache(ContentType.Photo, "v3_no_cache.md") {
+    NoCache(
+            ContentType.Photo,
+            "No Cache",
+            "How to reject storing cache",
+            "v3_no_cache.md") {
         override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
             Glide.with(context)
                     .load(imageString)
@@ -158,7 +223,11 @@ enum class UsageType(val contentType: ContentType, val mdFileName: String) : Ser
                     .into(imageView)
         }
     },
-    CacheOriginalImage(ContentType.Photo, "v3_cache_original_image.md") {
+    CacheOriginalImage(
+            ContentType.Photo,
+            "Cache Original Image",
+            "How to cache original image resource",
+            "v3_cache_original_image.md") {
         override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
             Glide.with(context)
                     .load(imageString)
@@ -167,8 +236,17 @@ enum class UsageType(val contentType: ContentType, val mdFileName: String) : Ser
                     .into(imageView)
         }
     },
-    ImageRequestPriority(ContentType.Photo, "v3_image_request_priority.md"),
-    BitmapTarget(ContentType.Photo, "v3_bitmap_target.md") {
+    ImageRequestPriority(
+            ContentType.Photo,
+            "Image Request Priority",
+            "How to set priority of requesting images",
+            "v3_image_request_priority.md"
+    ),
+    BitmapTarget(
+            ContentType.Photo,
+            "Bitmap Target",
+            "How to process an image loaded as Bitmap",
+            "v3_bitmap_target.md") {
         override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
             val target = object : SimpleTarget<Bitmap>() {
                 override fun onLoadStarted(placeholder: Drawable?) {
@@ -192,7 +270,11 @@ enum class UsageType(val contentType: ContentType, val mdFileName: String) : Ser
                     .into(target)
         }
     },
-    SpecificSizeTarget(ContentType.Photo, "v3_specific_size_target.md") {
+    SpecificSizeTarget(
+            ContentType.Photo,
+            "Specific Size Target",
+            "How to process an image in specific size",
+            "v3_specific_size_target.md") {
         override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
             val target = object : SimpleTarget<Bitmap>(200, 200) {
                 override fun onLoadStarted(placeholder: Drawable?) {
@@ -211,7 +293,11 @@ enum class UsageType(val contentType: ContentType, val mdFileName: String) : Ser
                     .into(target)
         }
     },
-    CustomTransformation(ContentType.Photo, "v3_custom_transformation.md") {
+    CustomTransformation(
+            ContentType.Photo,
+            "Custom Transformation",
+            "How to customize transformation of a loaded image",
+            "v3_custom_transformation.md") {
         override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
             Glide.with(context)
                     .load(imageString)
@@ -220,7 +306,11 @@ enum class UsageType(val contentType: ContentType, val mdFileName: String) : Ser
                     .into(imageView)
         }
     },
-    MultiTransformations(ContentType.Photo, "v3_multi_transformations.md") {
+    MultiTransformations(
+            ContentType.Photo,
+            "Multiple Transformations",
+            "How to set multiple transformations",
+            "v3_multi_transformations.md") {
         override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
             Glide.with(context)
                     .load(imageString)
@@ -229,7 +319,11 @@ enum class UsageType(val contentType: ContentType, val mdFileName: String) : Ser
                     .into(imageView)
         }
     },
-    SlideInAnimation(ContentType.Photo, "v3_slide_in_animation.md") {
+    SlideInAnimation(
+            ContentType.Photo,
+            "Animation",
+            "How to show an image with slide in animation",
+            "v3_slide_in_animation.md") {
         override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
             Glide.with(context)
                     .load(imageString)
@@ -238,7 +332,11 @@ enum class UsageType(val contentType: ContentType, val mdFileName: String) : Ser
                     .into(imageView)
         }
     },
-    ZoomInAnimation(ContentType.Photo, "v3_zoom_in_animation.md") {
+    ZoomInAnimation(
+            ContentType.Photo,
+            "Animation",
+            "How to show an image with zoom in animation",
+            "v3_zoom_in_animation.md") {
         override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
             Glide.with(context)
                     .load(imageString)
@@ -247,7 +345,11 @@ enum class UsageType(val contentType: ContentType, val mdFileName: String) : Ser
                     .into(imageView)
         }
     },
-    CustomClassAnimation(ContentType.Photo, "v3_custom_class_animation.md") {
+    CustomClassAnimation(
+            ContentType.Photo,
+            "Animation",
+            "How to show an image with custom animation class",
+            "v3_custom_class_animation.md") {
         val animationObject = ViewPropertyAnimation.Animator { view ->
             view.alpha = 0f
 
@@ -264,8 +366,18 @@ enum class UsageType(val contentType: ContentType, val mdFileName: String) : Ser
                     .into(imageView)
         }
     },
-    ShapeImageViewWithBadPractice(ContentType.Photo, "v3_shape_image_view_with_bad_practice.md"),
-    ShapeImageViewWithGoodPractice(ContentType.Photo, "v3_shape_image_view_with_good_practice.md")
+    ShapeImageViewWithBadPractice(
+            ContentType.Photo,
+            "Shape ImageView",
+            "A bad practice of showing an image in shaped ImageView",
+            "v3_shape_image_view_with_bad_practice.md"
+    ),
+    ShapeImageViewWithGoodPractice(
+            ContentType.Photo,
+            "Shape Image View",
+            "A good practice of showing an image in shaped ImageView",
+            "v3_shape_image_view_with_good_practice.md"
+    )
     ;
 
     open fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {

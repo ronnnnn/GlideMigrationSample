@@ -21,5 +21,6 @@
     <dimen name="view_size_240">240dp</dimen>
 
     <!-- Text Size -->
+    <dimen name="text_size_16">16sp</dimen>
     <dimen name="text_size_22">22sp</dimen>
 </resources>

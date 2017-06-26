@@ -7,8 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.ronnnnn.glidemigrationsample.R
-import com.ronnnnn.glidemigrationsample.models.UsageType
 import com.ronnnnn.glidemigrationsample.extentions.bindView
+import com.ronnnnn.glidemigrationsample.models.UsageType
 
 /**
  * Created by kokushiseiya on 2017/06/17.
@@ -26,6 +26,7 @@ class UsageListRecyclerAdapter(private val context: Context, private val listene
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val titleTextView: TextView = itemView.bindView(R.id.title_text_view)
+        private val subTitleTextView: TextView = itemView.bindView(R.id.sub_title_text_view)
 
         fun onBindView(position: Int) {
             itemView.setOnClickListener {
@@ -33,7 +34,8 @@ class UsageListRecyclerAdapter(private val context: Context, private val listene
             }
 
             val usageType = UsageType.values()[position]
-            titleTextView.text = usageType.name
+            titleTextView.text = usageType.title
+            subTitleTextView.text = usageType.subTitle
         }
     }
 
