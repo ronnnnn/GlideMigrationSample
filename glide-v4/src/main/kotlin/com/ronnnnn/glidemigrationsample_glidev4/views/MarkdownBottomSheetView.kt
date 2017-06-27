@@ -26,7 +26,7 @@ class MarkdownBottomSheetView @JvmOverloads constructor(
         markdownView = bindView<MarkdownView>(R.id.markdown_view).apply {
             val githubStyleSheet = Github().apply {
                 addRule("body", "line-height: 1.6", "padding: 0px")
-                addRule("pre", "display: block", "padding: 0px", "margin: 0px", "font-size: 13px",
+                addRule("pre", "display: block", "padding: 12px", "margin: 0px", "font-size: 13px",
                         "line-height: 1.42857143", "color: #333", "background-color: #f6f8fa",
                         "border: 0px", "border-radius: 3px", "font-family: Menlo,Monaco,Consolas,\"Courier New\",monospace",
                         "overflow: auto", "position: relative")
