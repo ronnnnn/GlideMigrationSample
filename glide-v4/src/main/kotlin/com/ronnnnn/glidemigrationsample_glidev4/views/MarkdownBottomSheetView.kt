@@ -16,7 +16,7 @@ class MarkdownBottomSheetView @JvmOverloads constructor(
         context: Context,
         attributeSet: AttributeSet? = null,
         defStyleAttr: Int = 0,
-        defStyleRes: Int = 0): FrameLayout(context, attributeSet, defStyleAttr, defStyleRes) {
+        defStyleRes: Int = 0) : FrameLayout(context, attributeSet, defStyleAttr, defStyleRes) {
 
     private val markdownView: MarkdownView
 
@@ -24,7 +24,14 @@ class MarkdownBottomSheetView @JvmOverloads constructor(
         View.inflate(context, R.layout.view_markdown_bottom_sheet, this)
 
         markdownView = bindView<MarkdownView>(R.id.markdown_view).apply {
-            addStyleSheet(Github())
+            val githubStyleSheet = Github().apply {
+                addRule("body", "line-height: 1.6", "padding: 0px")
+                addRule("pre", "display: block", "padding: 0px", "margin: 0px", "font-size: 13px",
+                        "line-height: 1.42857143", "color: #333", "background-color: #f6f8fa",
+                        "border: 0px", "border-radius: 3px", "font-family: Menlo,Monaco,Consolas,\"Courier New\",monospace",
+                        "overflow: auto", "position: relative")
+            }
+            addStyleSheet(githubStyleSheet)
         }
     }
 
