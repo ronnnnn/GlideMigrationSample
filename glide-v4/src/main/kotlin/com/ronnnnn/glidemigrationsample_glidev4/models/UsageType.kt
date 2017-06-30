@@ -132,6 +132,19 @@ enum class UsageType(val contentType: ContentType, val title: String, val subTit
                     .into(imageView)
         }
     },
+    CircleCrop(
+            ContentType.Photo,
+            "Circle Crop",
+            "How to crop an image with CircleCrop",
+            "v4_circle_crop.md") {
+        override fun loadWithGlide(context: Context, imageView: ImageView, imageString: String) {
+            GlideApp.with(context)
+                    .load(imageString)
+                    .placeholder(R.drawable.image_placeholder)
+                    .circleCrop()
+                    .into(imageView)
+        }
+    },
     Gif(
             ContentType.Gif,
             "Gif",
