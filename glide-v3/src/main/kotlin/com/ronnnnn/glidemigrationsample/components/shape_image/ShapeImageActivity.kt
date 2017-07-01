@@ -14,6 +14,7 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.ronnnnn.glidemigrationsample.R
 import com.ronnnnn.glidemigrationsample.extentions.bindView
+import com.ronnnnn.glidemigrationsample.extentions.finishActivityWithSlideOut
 import com.ronnnnn.glidemigrationsample.models.Photo
 import com.ronnnnn.glidemigrationsample.models.UsageType
 import com.ronnnnn.glidemigrationsample.views.MarkdownBottomSheetView
@@ -132,5 +133,10 @@ class ShapeImageActivity : AppCompatActivity(), ShapeImagePresenter.ShapeImageVi
                         .into(diamondImageView)
             }
         }
+    }
+
+    override fun finish() {
+        super.finish()
+        finishActivityWithSlideOut()
     }
 }

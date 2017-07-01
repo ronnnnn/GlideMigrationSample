@@ -15,6 +15,7 @@ import com.bumptech.glide.request.transition.DrawableCrossFadeFactory
 import com.ronnnnn.glidemigrationsample_glidev4.GlideApp
 import com.ronnnnn.glidemigrationsample_glidev4.R
 import com.ronnnnn.glidemigrationsample_glidev4.extentions.bindView
+import com.ronnnnn.glidemigrationsample_glidev4.extentions.finishActivityWithSlideOut
 import com.ronnnnn.glidemigrationsample_glidev4.models.UsageType
 import com.ronnnnn.glidemigrationsample_glidev4.views.MarkdownBottomSheetView
 
@@ -109,5 +110,10 @@ class TransparentImageActivity : AppCompatActivity() {
                 }
             })
         }
+    }
+
+    override fun finish() {
+        super.finish()
+        finishActivityWithSlideOut()
     }
 }

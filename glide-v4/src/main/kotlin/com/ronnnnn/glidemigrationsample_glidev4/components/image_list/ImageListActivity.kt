@@ -15,6 +15,7 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import com.ronnnnn.glidemigrationsample_glidev4.R
 import com.ronnnnn.glidemigrationsample_glidev4.extentions.bindView
+import com.ronnnnn.glidemigrationsample_glidev4.extentions.finishActivityWithSlideOut
 import com.ronnnnn.glidemigrationsample_glidev4.models.*
 import com.ronnnnn.glidemigrationsample_glidev4.views.MarkdownBottomSheetView
 
@@ -123,5 +124,10 @@ class ImageListActivity : AppCompatActivity(), ImageListPresenter.ImageListView 
 
     override fun setGifs(gifList: List<Gif>) {
         adapter.setItems(gifList)
+    }
+
+    override fun finish() {
+        super.finish()
+        finishActivityWithSlideOut()
     }
 }

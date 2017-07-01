@@ -11,6 +11,7 @@ import com.ronnnnn.glidemigrationsample.components.image_list.ImageListActivity
 import com.ronnnnn.glidemigrationsample.components.shape_image.ShapeImageActivity
 import com.ronnnnn.glidemigrationsample.components.two_image.MultiImageActivity
 import com.ronnnnn.glidemigrationsample.extentions.bindView
+import com.ronnnnn.glidemigrationsample.extentions.startActivityWithSlideIn
 import com.ronnnnn.glidemigrationsample.models.UsageType
 import com.ronnnnn.glidemigrationsample.views.SimpleItemDecoration
 
@@ -40,16 +41,16 @@ class UsageListActivity : AppCompatActivity(), UsageListRecyclerAdapter.UsageLis
 
         when (usageType) {
             UsageType.ImageRequestPriority -> {
-                startActivity(MultiImageActivity.createIntent(this))
+                startActivityWithSlideIn(MultiImageActivity.createIntent(this))
             }
 
             UsageType.ShapeImageViewWithBadPractice,
             UsageType.ShapeImageViewWithGoodPractice -> {
-                startActivity(ShapeImageActivity.createIntent(this, usageType))
+                startActivityWithSlideIn(ShapeImageActivity.createIntent(this, usageType))
             }
 
             else -> {
-                startActivity(ImageListActivity.createIntent(this, usageType))
+                startActivityWithSlideIn(ImageListActivity.createIntent(this, usageType))
             }
         }
     }

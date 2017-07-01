@@ -15,6 +15,7 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.ronnnnn.glidemigrationsample_glidev4.GlideApp
 import com.ronnnnn.glidemigrationsample_glidev4.R
 import com.ronnnnn.glidemigrationsample_glidev4.extentions.bindView
+import com.ronnnnn.glidemigrationsample_glidev4.extentions.finishActivityWithSlideOut
 import com.ronnnnn.glidemigrationsample_glidev4.models.Photo
 import com.ronnnnn.glidemigrationsample_glidev4.models.UsageType
 import com.ronnnnn.glidemigrationsample_glidev4.views.MarkdownBottomSheetView
@@ -133,5 +134,10 @@ class ShapeImageActivity : AppCompatActivity(), ShapeImagePresenter.ShapeImageVi
                         .into(diamondImageView)
             }
         }
+    }
+
+    override fun finish() {
+        super.finish()
+        finishActivityWithSlideOut()
     }
 }

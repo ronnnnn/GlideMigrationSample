@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.Priority
 import com.ronnnnn.glidemigrationsample.R
 import com.ronnnnn.glidemigrationsample.extentions.bindView
+import com.ronnnnn.glidemigrationsample.extentions.finishActivityWithSlideOut
 import com.ronnnnn.glidemigrationsample.models.Photo
 import com.ronnnnn.glidemigrationsample.models.UsageType
 import com.ronnnnn.glidemigrationsample.views.MarkdownBottomSheetView
@@ -107,5 +108,10 @@ class MultiImageActivity : AppCompatActivity(), MultiImagePresenter.MultiImageVi
                 .placeholder(R.drawable.image_placeholder)
                 .priority(Priority.LOW)
                 .into(secondImageView)
+    }
+
+    override fun finish() {
+        super.finish()
+        finishActivityWithSlideOut()
     }
 }

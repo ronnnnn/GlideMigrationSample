@@ -12,6 +12,7 @@ import com.ronnnnn.glidemigrationsample_glidev4.components.shape_image.ShapeImag
 import com.ronnnnn.glidemigrationsample_glidev4.components.transparent_image.TransparentImageActivity
 import com.ronnnnn.glidemigrationsample_glidev4.components.two_image.MultiImageActivity
 import com.ronnnnn.glidemigrationsample_glidev4.extentions.bindView
+import com.ronnnnn.glidemigrationsample_glidev4.extentions.startActivityWithSlideIn
 import com.ronnnnn.glidemigrationsample_glidev4.models.UsageType
 import com.ronnnnn.glidemigrationsample_glidev4.views.SimpleItemDecoration
 
@@ -41,21 +42,21 @@ class UsageListActivity : AppCompatActivity(), UsageListRecyclerAdapter.UsageLis
 
         when (usageType) {
             UsageType.ImageRequestPriority -> {
-                startActivity(MultiImageActivity.createIntent(this))
+                startActivityWithSlideIn(MultiImageActivity.createIntent(this))
             }
 
             UsageType.ShapeImageViewWithBadPractice,
             UsageType.ShapeImageViewWithGoodPractice -> {
-                startActivity(ShapeImageActivity.createIntetnt(this, usageType))
+                startActivityWithSlideIn(ShapeImageActivity.createIntetnt(this, usageType))
             }
 
             UsageType.TransparentImageWithBadPractice,
             UsageType.TransparentImageWithGoodPractice -> {
-                startActivity(TransparentImageActivity.createIntent(this, usageType))
+                startActivityWithSlideIn(TransparentImageActivity.createIntent(this, usageType))
             }
 
             else -> {
-                startActivity(ImageListActivity.createIntent(this, usageType))
+                startActivityWithSlideIn(ImageListActivity.createIntent(this, usageType))
             }
         }
     }
