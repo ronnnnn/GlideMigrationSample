@@ -1,15 +1,15 @@
-# GlideMigrationSample
+# Glide Migration Sample
 <img src="https://github.com/ronnnnn/GlideMigrationSample/blob/master/images/GMS_icon.png?raw=true" width="200">
 
 ## About
-This is Android sample applications for migrating glide v3 to v4.
-You can compare implementation of glide v3 and v4 by installing each applications.
+This is Android sample applications for migrating [Glide](https://github.com/bumptech/glide) v3 to v4.
+You can compare implementation of Glide v3 and v4 by installing each applications.
 
 ### Project Structure
 - glide-v3
-  - An Android sample application for glide v3.
+  - An Android sample application for Glide v3.
 - glide-v4
-  - An Android sample application for glide v4.
+  - An Android sample application for Glide v4 (**use `Glide 4.0.0 RC1` version.**).
   
 ### Note
 These applications get images from Flickr API and Gifs from Giphy API with no filter.
