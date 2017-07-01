@@ -9,7 +9,8 @@
     <color name="text_secondary">@color/color_primary_dark_66</color>
     <color name="text_accent">@color/color_accent</color>
 
-    <color name="background_primary">@android:color/white</color>
+    <color name="background_primary">#FAFAFA</color>
+    <color name="background_secondary">@android:color/white</color>
 
     <color name="usage_list_divider_color">@color/color_primary_dark_66</color>
 </resources>
