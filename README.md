@@ -7,9 +7,9 @@ You can compare implementation of Glide v3 and v4 by installing each application
 
 ### Project Structure
 - glide-v3
-  - An Android sample application for Glide v3.
+  - An Android sample application for Glide v3.
 - glide-v4
-  - An Android sample application for Glide v4 (**use `Glide 4.0.0 RC1` version.**).
+  - An Android sample application for Glide v4 (**use `Glide 4.0.0 RC1` version.**).
   
 ### Note
 These applications get images from Flickr API and Gifs from Giphy API with no filter.
