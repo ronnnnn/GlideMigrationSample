@@ -26,6 +26,7 @@ So, sometimes you can find inappropriate images, be careful!
 If you have some questions or problems about these applications, make issues on this repository.
 
 ## Open Source Licenses
+Look [licences](https://github.com/ronnnnn/GlideMigrationSample/blob/master/license/licences.md).
 
 ## Thanks
 These applications' logo is inspired by Glide's [amazing logo](https://github.com/bumptech/glide/blob/master/static/glide_logo.png) which is created by **Corey Hall**.
