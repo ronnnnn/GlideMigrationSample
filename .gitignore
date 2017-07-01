@@ -56,3 +56,6 @@ app/production.jks
 
 # Properties
 secret.properties
+
+# Sketch File
+GMS_icon.sketch
