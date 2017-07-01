@@ -2,6 +2,7 @@
 GlideApp.with(this)
     .load(photoList[0].getPhotoUrl())
     .placeholder(R.drawable.image_placeholder)
+    .circleCrop()
     .transition(DrawableTransitionOptions.withCrossFade())
     .into(circleImageView)
 
