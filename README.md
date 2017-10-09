@@ -9,16 +9,18 @@ You can compare implementation of Glide v3 and v4 by installing each application
 - glide-v3
   - An Android sample application for Glide v3.
 - glide-v4
-  - An Android sample application for Glide v4 (**use `Glide 4.0.0 RC1` version.**).
+  - An Android sample application for Glide v4 (**using `Glide 4.0.0 RC1` version.**).
+- glide-v4.2
+  - An Android sample application for Glide v4.2.
   
 ### Note
-These applications get images from Flickr API and Gifs from Giphy API with no filter.
-So, sometimes you can find inappropriate images, be careful!
+These applications get images from Flickr API and Gifs from Giphy API without any filters.
+**Be careful of finding restricted images!!**
 
 ## How to Use
 ![](https://github.com/ronnnnn/GlideMigrationSample/blob/master/images/overview.gif?raw=true)
 1. Clone or fork this repository and open this project on AndroidStudio.
-2. Choose a module (glide-v3 or glide-v4) you want to build and install.
+2. Choose a module (glide-v3, glide-v4 or glide-v4.2) you want to build and install.
 3. You can check behavior of glide on each applications.
 4. You can also find sample code of glide implementation on each applications.
 
