@@ -1,1 +1,1 @@
-include ':glide-v3', ':glide-v4'
+include ':glide-v3', ':glide-v4', ':glide-v4.2'
